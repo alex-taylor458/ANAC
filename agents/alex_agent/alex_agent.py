@@ -137,7 +137,7 @@ class AlexAgent(DefaultParty):
         Returns:
             str: Agent description
         """
-        return "Template agent for the ANL 2022 competition"
+        return "Alex's Agent for Final Project"
 
     def opponent_action(self, action):
         """Process an action that was received from the opponent.
@@ -194,13 +194,9 @@ class AlexAgent(DefaultParty):
         # progress of the negotiation session between 0 and 1 (1 is deadline)
         progress = self.progress.get(time() * 1000)
 
-        # very basic approach that accepts if the offer is valued above 0.7 and
-        # 95% of the time towards the deadline has passed
-        conditions = [
-            self.profile.getUtility(bid) > 0.8,
-            progress > 0.95,
-        ]
-        return all(conditions)
+        #Exponential changing min utility threshold
+        min_utility_threshold = 0.9 - (0.3 * (progress ** 2))
+        return self.profile.getUtility(bid) >= min_utility_threshold
 
     def find_bid(self) -> Bid:
         # compose a list of all possible bids
@@ -235,13 +231,15 @@ class AlexAgent(DefaultParty):
         progress = self.progress.get(time() * 1000)
 
         our_utility = float(self.profile.getUtility(bid))
-
         time_pressure = 1.0 - progress ** (1 / eps)
-        score = alpha * time_pressure * our_utility
+
+        self_weight = max(alpha * time_pressure, 0.6)
+        opponent_weight = 1.0 - self_weight
+
+        score = self_weight * our_utility
 
         if self.opponent_model is not None:
             opponent_utility = self.opponent_model.get_predicted_utility(bid)
-            opponent_score = (1.0 - alpha * time_pressure) * opponent_utility
-            score += opponent_score
+            score += opponent_weight * opponent_utility
 
         return score
