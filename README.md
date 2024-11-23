@@ -2,7 +2,7 @@
 Join our [Discord server](https://discord.gg/qvXK3DJTuz)!
 Read the [Call for Participants](docs/Automated_Negotiation_League_2023.pdf)!
 
-This is a template repository for the Agent Negotiation League (ANL) of [ANAC](https://web.tuat.ac.jp/~katfuji/ANAC2023/index.html) which will be held at AAMAS 2023. 
+This is the CSC 555 Negotiation League Final project repository. 
 
 ## Overview
 - directories:
@@ -19,6 +19,7 @@ This is a template repository for the Agent Negotiation League (ANL) of [ANAC](h
 Download or clone this repository. *Note that if you fork this repository you cannot make it private*, which is default behaviour of GitHub. This will cause your code to be publicly visible if you push it to your forked repository.
 
 We recommend using Python 3.9 as this version will be used during the actual competition. The required dependencies are listed in the `requirements.txt` file and can be installed through `pip install -r requirements.txt`. We advise you to create a Python virtual environment to install the dependencies in isolation (e.g. `python3.9 -m venv .venv`, see also [here](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment))
+This works for our agents as well.
 
 As already mentioned, should you need any additional dependencies, please notify me. A few of the most common dependencies are already listed in `requirements_allowed.txt` file. 
 
@@ -30,6 +31,7 @@ For VSCode devcontainer users: We included a devcontainer specification in the `
 - Develop your agent in the copied directory. Make sure that all the files that you use are in the directory.
 - Test your agent through `run.py`, results will be returned as dictionaries and saved as json-file. A plot of the negotiation trace will also be saved.
 - You can also test your agent more extensively by running a tournament with a set of agents. Use the `run_tournament.py` script for this. Summaries of the results will be saved to the results directory.
+- For ours, you can use 'run.py' to simulate a negotation between 'galav_agent.py' and 'jgkurian.py'. You can edit it to change to different agents as well.
 
 ## Documentation
 The code of GeniusWebPython is properly documented. Exploring the class definitions of the classes used in the template agent is usually sufficient to understand how to work with them.
