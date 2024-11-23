@@ -18,12 +18,12 @@ if not RESULTS_DIR.exists():
 settings = {
     "agents": [
         {
-            "class": "agents.ANL2022.dreamteam109_agent.dreamteam109_agent.DreamTeam109Agent",
-            "parameters": {"storage_dir": "agent_storage/DreamTeam109Agent"},
+            "class": "agents.galav_agent.galav_agent.GalavAgent",
+            "parameters": {"storage_dir": "agent_storage/GalavAgent"},
         },
         {
-            "class": "agents.template_agent.template_agent.TemplateAgent",
-            "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
+            "class": "agents.jgkurian_agent.jgkurian_agent.JgkurianAgent",
+            "parameters": {"storage_dir": "agent_storage/JgkurianAgent"},
         },
     ],
     "profiles": ["domains/domain00/profileA.json", "domains/domain00/profileB.json"],

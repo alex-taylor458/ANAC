@@ -25,10 +25,12 @@ tournament_settings = {
             "class": "agents.boulware_agent.boulware_agent.BoulwareAgent",
         },
         {
-            "class": "agents.conceder_agent.conceder_agent.ConcederAgent",
+            "class": "agents.galav_agent.galav_agent.GalavAgent",
+            "parameters": {"storage_dir": "agent_storage/GalavAgent"},
         },
         {
-            "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
+            "class": "agents.jgkurian_agent.jgkurian_agent.JgkurianAgent",
+            "parameters": {"storage_dir": "agent_storage/JgkurianAgent"},
         },
         {
             "class": "agents.linear_agent.linear_agent.LinearAgent",
